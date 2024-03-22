@@ -1,0 +1,16 @@
+
+- name: Install Ansible
+  apt:
+    name: ansible
+    state: present
+
+
+
+- name: Check Connectivity
+
+  on:
+    schedule:
+      - cron: '*/1 * * * *'
+    tasks:
+      - name: push job
+        command: ansible-playbook playbook.yml 
